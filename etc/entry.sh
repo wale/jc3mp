@@ -20,4 +20,4 @@ fi
 # Switch to workdir
 cd "${STEAMAPPDIR}"
 
-bash "${STEAMAPPDIR}/Server"
+./${STEAMAPPDIR}/Server
