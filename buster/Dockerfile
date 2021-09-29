@@ -62,6 +62,7 @@ VOLUME ${STEAMAPPDIR}
 CMD ["bash", "entry.sh"] 
 
 # Expose ports
-EXPOSE 27015/udp \
-	15000/tcp \
-	7777/udp
+EXPOSE 4200/tcp \
+	4201/tcp \
+	4202/tcp
+	4203/tcp

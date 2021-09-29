@@ -16,7 +16,7 @@ if [ ! -f "${STEAMAPPDIR}/config.json" ]; then
 		--arg announce false \
 		--arg description "${SERVER_DESCRIPTION}" \
 		--arg host "0.0.0.0" \
-		--arg httpPort $SERVER_HTTPORT
+		--arg httpPort $SERVER_HTTPPORT
 		--arg logLevel 7
 		--arg logo ""
 		--arg maxPlayers $SERVER_MAXPLAYERS
