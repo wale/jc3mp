@@ -12,21 +12,9 @@ fi
 
 # We assume that if the config is missing, that this is a fresh container
 if [ ! -f "${STEAMAPPDIR}/config.json" ]; then
-	jq --null-input \
-		--arg announce false \
-		--arg description "${SERVER_DESCRIPTION}" \
-		--arg host "0.0.0.0" \
-		--arg httpPort $SERVER_HTTPPORT
-		--arg logLevel 7
-		--arg logo ""
-		--arg maxPlayers $SERVER_MAXPLAYERS
-		--arg maxTickRate $SERVER_TICKRATE
-		--arg name $SERVER_NAME
-		--arg name $SERVER_PASS
-		--arg port $SERVER_PORT
-		--arg queryPort $SERVER_QUERYPORT
-		--arg requiredDLC []
-		--arg steamPort $SERVER_STEAMPORT
+	template='{"announce":false,"description":"%s","host":"0.0.0.0","httpPort":%s,"logLevel":7,"logo":"","maxPlayers":%s,"maxTickRate":%s,"name":"%s","pass":%s,"port":%s,"queryPort":%s, "requiredDLC": [], "steamPort": %s}'
+	json_string=$(printf "$template" $SERVER_DESCRIPTION "$SERVER_HTTPPORT" "$SERVER_MAXPLAYERS" "$SERVER_MAXTICKRATE" "$SERVER_NAME" "$SERVER_PASS" "$SERVER_PORT" "$SERVER_QUERYPORT" "$SERVER_STEAMPORT")
+	echo json_string > ${STEAMAPPDIR}/config.json}
 fi
 
 # Switch to workdir
