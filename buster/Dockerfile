@@ -23,9 +23,9 @@ RUN set -x \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Download and extract packages
-	&& wget --max-redirect=30 "${PKGURL}" -O "${HOMEDIR}/packages.zip"
-	&& mkdir "${HOMEDIR}/packages"
-	&& unzip "${HOMEDIR}/packages.zip" -d "${HOMEDIR}/packages"
+	&& wget --max-redirect=30 "${PKGURL}" -O "${HOMEDIR}/packages.zip" \
+	&& mkdir "${HOMEDIR}/packages" \
+	&& unzip "${HOMEDIR}/packages.zip" -d "${HOMEDIR}/packages" \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV SERVER_NAME="My JC3 Server" \
