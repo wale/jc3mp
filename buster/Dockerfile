@@ -1,14 +1,14 @@
 ###########################################################
-# Dockerfile that builds a Mordhau Gameserver
+# Dockerfile that builds a JC3 Gameserver
 ###########################################################
 FROM cm2network/steamcmd:root
 
-LABEL maintainer="walentinlamonos@gmail.com"
+LABEL maintainer="me@wale.id.au"
 
-ENV STEAMAPPID 629800
+ENV STEAMAPPID 619960 
 ENV STEAMAPP mordhau
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
-ENV DLURL https://raw.githubusercontent.com/CM2Walki/Mordhau
+ENV DLURL https://raw.githubusercontent.com/wale/jc3mp
 
 # Install Mordhau server dependencies and clean up
 RUN set -x \
@@ -32,25 +32,24 @@ RUN set -x \
 		wget=1.20.1-1.1 \
 		ca-certificates=20190110 \
 		iputils-ping=3:20180629-2+deb10u1 \
+		curl \
+		unzip \
+		jq \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& wget --max-redirect=30 "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV SERVER_ADMINPW="replacethisyoumadlad" \
-	SERVER_PW="" \
-	SERVER_NAME="My Mordhau Server" \
+ENV SERVER_NAME="My JC3 Server" \
+	SERVER_DESCRIPTION="My JC3 Server Description"
+	SERVER_PASS=""
 	SERVER_MAXPLAYERS=32 \
 	SERVER_TICKRATE=60 \
-	SERVER_PORT=7777 \
-	SERVER_QUERYPORT=27015 \
-	SERVER_BEACONPORT=15000 \
-	SERVER_GAMEINI="cfg/Game.ini" \
-	SERVER_ENGINEINI="cfg/Engine.ini" \
-	SERVER_DEFAULTMAP="ThePit\/FFA_ThePit.FFA_ThePit" \
-	STEAMCMD_UPDATE_ARGS="" \
-	ADDITIONAL_ARGS=""
+	SERVER_PORT=4200 \
+	SERVER_QUERYPORT=4201 \
+	SERVER_STEAMPORT=4202
+	SERVER_HTTPPORT=4203
 
 # Switch to user
 USER ${USER}
