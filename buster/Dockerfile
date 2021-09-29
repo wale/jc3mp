@@ -6,7 +6,7 @@ FROM cm2network/steamcmd:root
 LABEL maintainer="me@wale.id.au"
 
 ENV STEAMAPPID 619960 
-ENV STEAMAPP mordhau
+ENV STEAMAPP jc3mp
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 ENV DLURL https://raw.githubusercontent.com/wale/jc3mp
 ENV PKGURL https://dl.nanos.io/packages.zip
