@@ -14,7 +14,7 @@ fi
 if [ ! -f "${STEAMAPPDIR}/config.json" ]; then
 	template='{"announce":false,"description":"%s","host":"0.0.0.0","httpPort":%s,"logLevel":7,"logo":"","maxPlayers":%s,"maxTickRate":%s,"name":"%s","pass":%s,"port":%s,"queryPort":%s, "requiredDLC": [], "steamPort": %s}'
 	json_string=$(printf "$template" $SERVER_DESCRIPTION "$SERVER_HTTPPORT" "$SERVER_MAXPLAYERS" "$SERVER_MAXTICKRATE" "$SERVER_NAME" "$SERVER_PASS" "$SERVER_PORT" "$SERVER_QUERYPORT" "$SERVER_STEAMPORT")
-	echo json_string > ${STEAMAPPDIR}/config.json}
+	echo json_string > ${STEAMAPPDIR}/config.json
 fi
 
 # Switch to workdir
