@@ -20,4 +20,5 @@ fi
 # Switch to workdir
 cd "${STEAMAPPDIR}"
 
-./${STEAMAPPDIR}/Server
+# run server
+./Server
