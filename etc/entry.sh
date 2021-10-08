@@ -12,7 +12,7 @@ fi
 
 # do some stupid shit to the json file
 sed -i "s/{description}/${SERVER_DESCRIPTION}/" ${STEAMAPPDIR}/config.json
-sed -i "s/{name}/${SERVER_NAME}" ${STEAMAPPDIR}/config.json
+sed -i "s/{name}/${SERVER_NAME}/" ${STEAMAPPDIR}/config.json
 sed -i "s/{pass}/${SERVER_PASS}/" ${STEAMAPPDIR}/config.json
 
 
